@@ -1,0 +1,22 @@
+﻿  Source.cpp
+c:\users\digit\source\repos\game\lab 5 prog 2\view.h(7): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(63): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(64): warning C4244: инициализация: преобразование "float" в "int", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(71): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(79): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(125): warning C4305: =: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(126): warning C4305: =: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(135): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(143): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(151): warning C4305: =: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(152): warning C4305: =: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(233): warning C4305: аргумент: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(237): warning C4244: =: преобразование "float" в "int", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(238): warning C4244: инициализация: преобразование "sf::Int64" в "float", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(260): warning C4305: =: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(264): warning C4305: =: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(268): warning C4305: =: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(272): warning C4305: =: усечение из "double" в "float"
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(313): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\digit\source\repos\game\lab 5 prog 2\source.cpp(416): warning C4838: преобразование из "int" в "SHORT" требует сужающего преобразования
+  lab 5 prog 2.vcxproj -> C:\Users\digit\source\repos\Game\x64\Debug\Game.exe

@@ -1,0 +1,6 @@
+﻿  Source.cpp
+c:\users\digit\source\repos\saper\saper\source.cpp(8): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+c:\users\digit\source\repos\saper\saper\source.cpp(42): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\digit\source\repos\saper\saper\source.cpp(19): warning C4101: mouseX: неиспользованная локальная переменная
+c:\users\digit\source\repos\saper\saper\source.cpp(20): warning C4101: mouseY: неиспользованная локальная переменная
+sfml-graphics-d.lib(sfml-graphics-d-2.dll) : fatal error LNK1112: тип компьютера модуля "x64" противоречит типу целевого компьютера "x86"

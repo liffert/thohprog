@@ -1,0 +1,39 @@
+0000	Data Segment
+
+0000	e8 Int2   DB  11101000b
+0001	20b Int10  DW  523
+0003	0000F856A Int16  DD  0F856Ah
+0007	48 6f 48 6f 48 6f  Text1 DB  'HoHoHo'
+
+000d	Data ENDS
+
+0000	Code Segment 
+
+0000	=0005	NUMBER EQU 5
+
+0000	34 Innt DB 52
+0001	Start:
+0001	IF NUMBER
+0001	FA	Cli
+0002	76 22 90 90 90 90 Jbe good
+0008	FE c4	Inc ah
+000a	2E: FE 0D 0000r	Dec Innt
+0011	02 c2	Add al, dl
+0013	3A 14 32	Cmp dl, [edx+esi]
+0016	2E: 20 15 0000r	And Innt,dl
+001d	05	Mov al,5
+001f	83 0c 32	05	Or byte ptr[edx+esi],NUMBER
+0023	ENDIF
+0023	76 dc Jbe start
+0025	FA	Cli
+0026	good:
+0026	FF 34 00	push dword ptr[eax+eax]
+0029	66| FF 34 08	push word ptr[eax+ecx]
+002d	FF 35 0003r	push Int16
+0033	66| FF 35 0001r	push Int10
+
+
+003a	Code ENDS
+
+0000	END
+

@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1122</width>
+    <height>476</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: #8B0000;
+border-radius: 10px;</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="styleSheet">
+    <string notr="true">background-color: #000000;</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="1">
+     <widget class="QLabel" name="label">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>372</width>
+        <height>80</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>30</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: 1px solid #8B0000;
+border-radius: 10px;
+color: white;</string>
+      </property>
+      <property name="text">
+       <string>Press SPACE to start</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="2">
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="0">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="0" column="4">
+     <widget class="QScrollArea" name="scrollArea_2">
+      <property name="minimumSize">
+       <size>
+        <width>210</width>
+        <height>415</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius: 5px;</string>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_5">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>210</width>
+         <height>415</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <item>
+           <widget class="QLabel" name="Best_result">
+            <property name="sizeIncrement">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid #8B0000;
+border-radius: 10px;
+padding-left: 10px;
+color: #ffffff;</string>
+            </property>
+            <property name="text">
+             <string>Best: </string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QPushButton" name="Delete">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid black;
+border-radius: 10px;
+color: #ffffff;
+background-color: #8B0000;</string>
+            </property>
+            <property name="text">
+             <string>Delete result</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="DeleteSession">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid black;
+border-radius: 10px;
+color: #ffffff;
+background-color: #8B0000;</string>
+            </property>
+            <property name="text">
+             <string>Delete session results</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="DeleteALL">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>10</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border: 1px solid black;
+border-radius: 10px;
+color: #ffffff;
+background-color: #8B0000;</string>
+            </property>
+            <property name="text">
+             <string>Delete ALL session</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="5">
+     <widget class="QLabel" name="StatusBar">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>10</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+        <stylestrategy>PreferDefault</stylestrategy>
+       </font>
+      </property>
+      <property name="contextMenuPolicy">
+       <enum>Qt::DefaultContextMenu</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: #ffffff;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="3">
+     <widget class="QScrollArea" name="scrollArea">
+      <property name="minimumSize">
+       <size>
+        <width>210</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-radius:5px;</string>
+      </property>
+      <property name="widgetResizable">
+       <bool>true</bool>
+      </property>
+      <widget class="QWidget" name="scrollAreaWidgetContents_4">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>210</width>
+         <height>415</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_2">
+        <item row="0" column="0">
+         <widget class="QLabel" name="Output">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border: 1px solid #8B0000;
+border-radius: 10px;
+padding-left: 10px;
+color: #ffffff;</string>
+          </property>
+          <property name="text">
+           <string>Output: </string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1122</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <widget class="QMenu" name="menuMain">
+    <property name="styleSheet">
+     <string notr="true">color: white;</string>
+    </property>
+    <property name="title">
+     <string>Main</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuSession">
+    <property name="styleSheet">
+     <string notr="true">color: white;</string>
+    </property>
+    <property name="title">
+     <string>Session</string>
+    </property>
+    <addaction name="actionSession_one"/>
+    <addaction name="actionSession_two"/>
+    <addaction name="actionSession_three"/>
+    <addaction name="actionSession_4"/>
+    <addaction name="actionSession_5"/>
+   </widget>
+   <widget class="QMenu" name="menuPuzzle">
+    <property name="styleSheet">
+     <string notr="true">color: white;</string>
+    </property>
+    <property name="title">
+     <string>Puzzle</string>
+    </property>
+    <addaction name="action3x3"/>
+    <addaction name="action2x2"/>
+    <addaction name="action4x4"/>
+    <addaction name="action5x5"/>
+    <addaction name="action6x6"/>
+    <addaction name="action7x7"/>
+    <addaction name="actionMegaminx"/>
+    <addaction name="actionPiraminx"/>
+    <addaction name="actionSkew"/>
+    <addaction name="actionSquare_1"/>
+    <addaction name="actionAnother_one"/>
+   </widget>
+   <addaction name="menuMain"/>
+   <addaction name="menuSession"/>
+   <addaction name="menuPuzzle"/>
+  </widget>
+  <action name="actionSession_one">
+   <property name="text">
+    <string>Session one</string>
+   </property>
+   <property name="iconVisibleInMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="actionSession_two">
+   <property name="text">
+    <string>Session two</string>
+   </property>
+  </action>
+  <action name="actionSession_three">
+   <property name="text">
+    <string>Session three</string>
+   </property>
+  </action>
+  <action name="actionSession_4">
+   <property name="text">
+    <string>Session 4</string>
+   </property>
+  </action>
+  <action name="actionSession_5">
+   <property name="text">
+    <string>Session 5</string>
+   </property>
+  </action>
+  <action name="action3x3">
+   <property name="text">
+    <string>3x3</string>
+   </property>
+  </action>
+  <action name="action2x2">
+   <property name="text">
+    <string>2x2</string>
+   </property>
+  </action>
+  <action name="action4x4">
+   <property name="text">
+    <string>4x4</string>
+   </property>
+  </action>
+  <action name="action5x5">
+   <property name="text">
+    <string>5x5</string>
+   </property>
+  </action>
+  <action name="action6x6">
+   <property name="text">
+    <string>6x6</string>
+   </property>
+  </action>
+  <action name="action7x7">
+   <property name="text">
+    <string>7x7</string>
+   </property>
+  </action>
+  <action name="actionMegaminx">
+   <property name="text">
+    <string>Megaminx</string>
+   </property>
+  </action>
+  <action name="actionPiraminx">
+   <property name="text">
+    <string>Piraminx</string>
+   </property>
+  </action>
+  <action name="actionSkew">
+   <property name="text">
+    <string>Skewb</string>
+   </property>
+  </action>
+  <action name="actionSquare_1">
+   <property name="text">
+    <string>Square-1</string>
+   </property>
+  </action>
+  <action name="actionAnother_one">
+   <property name="text">
+    <string>Another one</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
