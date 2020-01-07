@@ -27,6 +27,7 @@ void setup_console() {
 int main() {
 	setup_console();
 	//Game::setup_field(Game::rect{ 10, 10, 20, 20 });
+	Game::change_speed(90);
 	Game::start();
 	const Game::results_t temp = Game::get_results();
 

@@ -6,10 +6,12 @@
 #include <conio.h>
 
 
+
 namespace Game {
 	///variables and structures
 
 	static bool end_flag;
+	static int speed = 150;
 	static HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	typedef struct results {
@@ -54,20 +56,20 @@ namespace Game {
 	//classes
 	class Block {
 	public:
-		Block(int x, int y);
-		Block(int x, int y, bool eat);
+		Block(const int x, const int y);
+		Block(const int x, const int y, const bool eat);
 		~Block();
 
-		bool compare(Block temp);
+		bool compare(const Block temp) const;
 
 		int get_x() const;
 		int get_y() const;
-		void show(char symb) const;
+		void show(const char symb) const;
 		bool eat_status() const;
 		void eating() { eat_s = false; }
 
-		void add_move(int move);
-		void add_move(std::vector <move_t> moves);
+		void add_move(const int move);
+		void add_move(const std::vector <move_t> &moves);
 		void move();
 
 		int get_size_moves() const;
@@ -83,23 +85,21 @@ namespace Game {
 
 	class Snake {
 	public:
-		Snake(rect field);
+		Snake(const rect field);
 		~Snake();
-		void show();
+		void show() const;
 		bool move();
-		void set_eat(Block* eat);
-		void change_status(int m);
-		bool check_with_body(Block temp)const;
+		void set_eat(Block* &eat);
+		void change_status(const int m);
+		bool check_with_body(const Block temp)const;
 		rect get_field()const;
 		int get_body_size() const;
 
 	private:
 		std::vector<Block> body;
-		int startX = 10;
-		int startY = 10;
-		void clear();
-		void check_end();
-		void add_body_moves(int move);
+		void clear() const;
+		void check_end() const;
+		void add_body_moves(const int move);
 		move_t state;
 		Block* eat;
 		rect field;
@@ -116,4 +116,6 @@ namespace Game {
 	void create_field(rect Square);
 	void start();
 	const results_t get_results();
+
+	void change_speed(int speed);
 }

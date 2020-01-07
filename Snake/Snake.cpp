@@ -1,13 +1,13 @@
 #include "Header.h"
 
-Game::Snake::Snake(rect field) : field(field) {
+Game::Snake::Snake(const rect field) : field(field) {
 	body.push_back(Block(this->field.x1 + 2, this->field.y1 + 2));
 }
 
 Game::Snake::~Snake() {
 }
 
-void Game::Snake::show() {
+void Game::Snake::show() const {
 	this->clear();
 	int  i = 0;
 	for (auto iter : body) {
@@ -123,10 +123,10 @@ bool Game::Snake::move() {
 	check_end();
 	return flag;
 }
-void Game::Snake::set_eat(Block* eat) {
+void Game::Snake::set_eat(Block* &eat) {
 	this->eat = eat;
 }
-void Game::Snake::change_status(int m) {
+void Game::Snake::change_status(const int m) {
 	if (m == MOVE::left) {
 		state.clear();
 		state.left = true;
@@ -144,7 +144,7 @@ void Game::Snake::change_status(int m) {
 		state.down = true;
 	}
 }
-bool Game::Snake::check_with_body(Block temp) const {
+bool Game::Snake::check_with_body(const Block temp) const {
 	for (auto iter : body) {
 		if (iter.compare(temp)) {
 			return false;
@@ -158,13 +158,13 @@ Game::rect Game::Snake::get_field() const {
 int Game::Snake::get_body_size() const {
 	return body.size();
 }
-void Game::Snake::clear() {
+void Game::Snake::clear() const {
 	for (auto iter : body) {
 		iter.show(' ');
 	}
 }
 
-void Game::Snake::check_end() {
+void Game::Snake::check_end() const {
 	for (auto iter = body.begin() + 1; iter != body.end(); iter++) {
 		if (iter->compare(body[0])) {
 			Game::end_game(field);
@@ -177,7 +177,7 @@ void Game::Snake::check_end() {
 	}
 }
 
-void Game::Snake::add_body_moves(int move) {
+void Game::Snake::add_body_moves(const int move) {
 	for (int i = 0; i < body.size(); i++) {
 		body[i].add_move(move);
 	}

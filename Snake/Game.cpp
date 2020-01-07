@@ -1,5 +1,5 @@
 #include "Header.h"
-
+#include <fstream>
 
 void Game::create_field(rect Square) {
 	for (int i = Square.x1; i <= Square.x2; i++) {
@@ -17,6 +17,7 @@ void Game::create_field(rect Square) {
 	}
 }
 void Game::start() {
+	//std::ofstream file("Log.txt");
 
 	int last_key = 0;
 	end_flag = false;
@@ -26,7 +27,6 @@ void Game::start() {
 	create_field(field);
 	//100 115 97 119
 
-	int speed = 150;
 	Snake snake(field);
 	std::clock_t time;
 	std::clock_t press_time = 0;
@@ -106,6 +106,7 @@ void Game::start() {
 			press_time = std::clock();
 		}
 		else if ((std::clock() - time) >= speed) {
+			//file << (std::clock() - time) << std::endl;
 			snake.move();
 			snake.show();
 			time = std::clock();
@@ -120,9 +121,14 @@ void Game::start() {
 
 	res.time = std::clock() - res.time;
 	res.results = snake.get_body_size();
+	//file.close();
+	//system("Log.txt");
 }
 const Game::results_t Game::get_results(){
 	return res;
+}
+void Game::change_speed(int speed) {
+	Game::speed = speed;
 }
 Game::Block Game::new_el(rect Square) {
 	int x = std::rand() % Square.x2;
