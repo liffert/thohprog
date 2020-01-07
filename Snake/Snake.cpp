@@ -1,7 +1,7 @@
 #include "Header.h"
 
 Game::Snake::Snake(rect field) : field(field) {
-	body.push_back(Block(startX, startY));
+	body.push_back(Block(this->field.x1 + 2, this->field.y1 + 2));
 }
 
 Game::Snake::~Snake() {
@@ -81,8 +81,6 @@ bool Game::Snake::move() {
 			flag = false;
 		}
 		m = MOVE::up;
-	}
-	else {
 	}
 
 	if (flag) {

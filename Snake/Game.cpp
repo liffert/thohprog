@@ -137,11 +137,23 @@ Game::Block Game::new_el(rect Square) {
 }
 
 void Game::setup_field(rect field) {
-	Game::field = field;
+	if (field.x1 == field.x2 || field.y1 == field.y2) {
+		std::cerr << "ERROR change field";
+		system("pause");
+	}
+	else {
+		Game::field = field;
+	}
 }
 
-void Game::setup_field(int x, int y, int width, int height) {
-	field = rect{ x, y, width, height };
+void Game::setup_field(int x1, int y1, int x2, int y2) {
+	if (x2 == x1 || y1 == y2) {
+		std::cerr << "ERROR change field";
+		system("pause");
+	}
+	else {
+		field = rect{ x1, y1, x2, y2 };
+	}
 }
 
 Game::Block* Game::eat_generator(const Snake g) {
@@ -149,11 +161,11 @@ Game::Block* Game::eat_generator(const Snake g) {
 	rect field = g.get_field();
 	while (1) {
 		int x = std::rand() % field.x2;
-		if (x <= field.x1) {
+		while(x <= field.x1) {
 			x = field.x1 + rand() % ((field.x2 - field.x1) / 2);
 		}
 		int y = std::rand() % field.y2;
-		if (y <= field.y1) {
+		while (y <= field.y1) {
 			y = field.y1 + rand() % ((field.y2 - field.y1) / 2);
 		}
 		Block* n = new Block{ x, y, true };

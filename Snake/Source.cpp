@@ -8,8 +8,8 @@ void setup_console() {
 	fontinfo.cbSize = sizeof(fontinfo);
 	fontinfo.FontFamily = FF_SCRIPT;
 	wcscpy_s(fontinfo.FaceName, L"Terminal");
-	fontinfo.dwFontSize.X = 15;
-	fontinfo.dwFontSize.Y = 15;
+	fontinfo.dwFontSize.X = 18;
+	fontinfo.dwFontSize.Y = 18;
 	SetCurrentConsoleFontEx(Game::hStdOut, FALSE, &fontinfo);
 
 	COORD screen = { 1400, 800 };
@@ -23,8 +23,10 @@ void setup_console() {
 
 	////////////////////////////////////////////////////////////////////
 }
+
 int main() {
 	setup_console();
+	//Game::setup_field(Game::rect{ 10, 10, 20, 20 });
 	Game::start();
 	const Game::results_t temp = Game::get_results();
 
