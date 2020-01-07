@@ -125,7 +125,6 @@ const Game::results_t Game::get_results(){
 	return res;
 }
 Game::Block Game::new_el(rect Square) {
-	std::srand(1);
 	int x = std::rand() % Square.x2;
 	if (x < Square.x1) {
 		x = x + Square.x1;
@@ -146,6 +145,7 @@ void Game::setup_field(int x, int y, int width, int height) {
 }
 
 Game::Block* Game::eat_generator(const Snake g) {
+	std::srand(std::time(NULL));
 	rect field = g.get_field();
 	while (1) {
 		int x = std::rand() % field.x2;
