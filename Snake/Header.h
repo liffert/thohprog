@@ -11,7 +11,7 @@ namespace Game {
 	///variables and structures
 
 	static bool end_flag;
-	static int speed = 150;
+	extern int speed;
 	static HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
 
 	typedef struct results {
@@ -116,6 +116,6 @@ namespace Game {
 	void create_field(rect Square);
 	void start();
 	const results_t get_results();
-
+	void setup_console(int X = 18, int Y = 18);
 	void change_speed(int speed);
 }

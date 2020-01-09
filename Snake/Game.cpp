@@ -1,6 +1,8 @@
 #include "Header.h"
 #include <fstream>
 
+int Game::speed = 150;
+
 void Game::create_field(rect Square) {
 	for (int i = Square.x1; i <= Square.x2; i++) {
 		gotoxy(i, Square.y1);
@@ -18,7 +20,7 @@ void Game::create_field(rect Square) {
 }
 void Game::start() {
 	//std::ofstream file("Log.txt");
-
+	res.moves = 0;
 	int last_key = 0;
 	end_flag = false;
 	std::srand(0);
@@ -126,6 +128,27 @@ void Game::start() {
 }
 const Game::results_t Game::get_results(){
 	return res;
+}
+void Game::setup_console(int X, int Y) {
+	//Console settings
+	CONSOLE_FONT_INFOEX fontinfo;
+	fontinfo.cbSize = sizeof(fontinfo);
+	fontinfo.FontFamily = FF_SCRIPT;
+	wcscpy_s(fontinfo.FaceName, L"Terminal");
+	fontinfo.dwFontSize.X = X;
+	fontinfo.dwFontSize.Y = Y;
+	SetCurrentConsoleFontEx(Game::hStdOut, FALSE, &fontinfo);
+
+	COORD screen = { 1400, 800 };
+	SetConsoleScreenBufferSize(Game::hStdOut, screen);
+	MoveWindow(GetConsoleWindow(), 100, 100, screen.X, screen.Y, TRUE);
+
+	CONSOLE_CURSOR_INFO structCursorInfo;
+	GetConsoleCursorInfo(Game::hStdOut, &structCursorInfo);
+	structCursorInfo.bVisible = FALSE;
+	SetConsoleCursorInfo(Game::hStdOut, &structCursorInfo);
+
+	////////////////////////////////////////////////////////////////////
 }
 void Game::change_speed(int speed) {
 	Game::speed = speed;
