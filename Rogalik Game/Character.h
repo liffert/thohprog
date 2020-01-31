@@ -10,6 +10,9 @@ public:
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates state) const;
 	void move(int move);
+
+	int getY() const;
+	int getX() const;
 private:
 	bool enemy;
 	std::string name;

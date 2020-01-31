@@ -22,3 +22,11 @@ void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 void Game::Move_hero(int move) {
 	characters.begin()->move(move);
 }
+
+int Game::get_hero_X() const {
+	return characters.begin()->getX();
+}
+
+int Game::get_hero_Y() const {
+	return characters.begin()->getY();
+}

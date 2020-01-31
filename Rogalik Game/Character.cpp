@@ -34,3 +34,11 @@ void Character::move(int move) {
 		break;
 	}
 }
+
+int Character::getY() const {
+	return y;
+}
+
+int Character::getX() const {
+	return x;
+}

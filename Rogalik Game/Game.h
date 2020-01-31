@@ -11,6 +11,8 @@ public:
 	void Inintialization();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	void Move_hero(int move);
+	int get_hero_X() const;
+	int get_hero_Y() const;
 
 	static enum MOVE {
 		UP = 1201,
