@@ -1,27 +1,34 @@
 #include "Game.h"
 #include <iostream>
-Game::Game(){
-	Inintialization();
+Game::Game(LevelGeneration& lvl, int n, int m, int pixelSize) : n(n), m(m), pixelSize(pixelSize) {
+	MAP = lvl.get();
+	int x;
+	int y;
+
+	lvl.get_start(x, y);
+	x = x * pixelSize;
+	y = y * pixelSize;
+	MAP = lvl.get();
+	Inintialization(x, y);
 }
 
 Game::~Game() {
 
 }
 
-void Game::Inintialization() {
+void Game::Inintialization(int x, int y) {
 	characters.clear();
-	Character hero("Hero", false);
-	int x1 = hero.getX();
-	int y1 = hero.getY();
-	Weapon weap(x1, y1);
+	Character hero("Hero", x, y, MAP, n, m);
+	Weapon weap(x, y);
 	characters.push_back(std::make_pair(hero, weap));
 }
 
-void Game::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+void Game::draw(sf::RenderTarget& target) {
 	for (auto& iter : characters) {
-		target.draw(iter.first, states);
-		target.draw(iter.second, states);
+		target.draw(iter.first);
+		target.draw(iter.second);
 	}
+	kick_hero(false);
 }
 
 void Game::Move_hero(int move) {

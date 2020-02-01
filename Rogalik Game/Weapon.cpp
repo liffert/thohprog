@@ -46,6 +46,8 @@ bool Weapon::kicked(int x1, int x2, int y1, int y2) {
 	return false;
 }
 
+
+
 void Weapon::Initialization() {
 	x2 = x1 + 20;
 	y2 = y1 - 20;

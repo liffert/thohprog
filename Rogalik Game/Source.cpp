@@ -16,7 +16,7 @@ int main() {
 	//view.reset(sf::FloatRect(0, 0, 1980, 1080));
 	view.setSize(sf::Vector2f(400, 400));
 
-	Game newGame;
+	Game newGame(gen, 36, 64, 30);
 	
 	while (window.isOpen()) {
 		while (window.pollEvent(event)) {
@@ -26,7 +26,6 @@ int main() {
 				break;
 
 			case sf::Event::KeyPressed:
-				
 				if (event.key.code == sf::Keyboard::Up) {
 					newGame.Move_hero(Game::MOVE::UP);
 				}
@@ -43,6 +42,7 @@ int main() {
 					newGame.kick_hero(true);
 					newGame.check_kick();
 				}
+				break;
 			}
 		}
 		view.setCenter(100 + newGame.get_hero_X(), newGame.get_hero_Y());
@@ -55,8 +55,7 @@ int main() {
 		temp.setRadius(1);
 		temp.setFillColor(sf::Color::Red);
 		window.draw(temp);
-		window.draw(newGame);
+		newGame.draw(window);
 		window.display();
-		newGame.kick_hero(false);
 	}
 }

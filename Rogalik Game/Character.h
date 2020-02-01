@@ -5,7 +5,7 @@
 class Character : public sf::Drawable {
 
 public:
-	Character(std::string name, bool enemy);
+	Character(std::string name, int x, int y, char **MAP, int n, int m);
 	~Character();
 
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates state) const;
@@ -14,6 +14,8 @@ public:
 	int getY() const;
 	int getX() const;
 private:
+
+	bool ability_to_move(int x, int  y);
 	bool enemy;
 	std::string name;
 
@@ -26,10 +28,13 @@ private:
 	int now_move = hero_path::right;
 	std::array<sf::Texture, 4> Hero_textures;
 	std::string Hero_path[4] = {"Characters/Left.png", "Characters/Right.png", "Characters/Front.png", "Characters/Front.png"};
-	int x = 10;
-	int y = 10;
-
-
+	int x;
+	int y;
 
 	int step = 5;
+
+	int n;
+	int m;
+	char** MAP;
+
 };

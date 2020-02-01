@@ -8,7 +8,8 @@ public:
 
 	void print();
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
-
+	char** get() const;
+	void get_start(int& x, int& y);
 
 private:
 

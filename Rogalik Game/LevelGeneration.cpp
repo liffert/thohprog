@@ -137,6 +137,29 @@ void LevelGeneration::draw(sf::RenderTarget& target, sf::RenderStates states) co
 	}
 }
 
+char** LevelGeneration::get() const {
+	return Rect;
+}
+
+void LevelGeneration::get_start(int& x, int& y) {
+	x = rooms.begin()->x1;
+	y = rooms.begin()->y1;
+
+	for (const auto& iter : rooms) {
+		if (iter.x1 < x) {
+			x = iter.x1;
+			y = iter.y1;
+		}
+		else if (iter.x1 == x && iter.y1 < y) {
+			x = iter.x1;
+			y = iter.y1;
+		}
+	}
+
+	x = x + minRoomSize / 2;
+	y = y + minRoomSize / 2;
+}
+
 /*int LevelGeneration::countAliveNeighbours(int x, int y) {
 	int count = 0;
 

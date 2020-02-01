@@ -6,7 +6,6 @@ public:
 	Weapon(int x1, int y1);
 	~Weapon();
 
-	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	void set_kick(bool state);
 	void move(int x, int y);
 	void rotate();
@@ -14,6 +13,7 @@ public:
 
 private:
 
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	void Initialization();
 	int x1;
 	int y1;
