@@ -78,6 +78,6 @@ private:
 	void placeRooms();
 	void hcoridor(int x1, int x2, int y);
 	void ycoridor(int y1, int y2, int x);
-
+	int pixelSize = 30;
 	
 };

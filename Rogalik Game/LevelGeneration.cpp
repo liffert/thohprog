@@ -119,10 +119,10 @@ LevelGeneration::leaf::~leaf() {
 void LevelGeneration::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	//sf::CircleShape temp(10);
 	sf::RectangleShape temp;
-	temp.setSize(sf::Vector2f(20, 20));
+	temp.setSize(sf::Vector2f(pixelSize, pixelSize));
 	for (int i = 0; i < rows; i++) {
 		for (int j = 0; j < columns; j++) {
-			temp.setPosition(j * 20, i * 20);
+			temp.setPosition(j * pixelSize, i * pixelSize);
 			switch (Rect[i][j]) {
 			case 'N':
 				temp.setFillColor(sf::Color(128, 128, 128));
