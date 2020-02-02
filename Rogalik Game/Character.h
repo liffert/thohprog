@@ -13,8 +13,9 @@ public:
 
 	int getY() const;
 	int getX() const;
-private:
+protected:
 
+	void init();
 	bool ability_to_move(int x, int  y);
 	bool enemy;
 	std::string name;
@@ -27,14 +28,38 @@ private:
 	};
 	int now_move = hero_path::right;
 	std::array<sf::Texture, 4> Hero_textures;
-	std::string Hero_path[4] = {"Characters/Left.png", "Characters/Right.png", "Characters/Front.png", "Characters/Front.png"};
+	std::string Hero_path[4];
 	int x;
 	int y;
 
 	int step = 5;
+	const int size = 15;
 
 	int n;
 	int m;
 	char** MAP;
+
+};
+
+
+
+
+class Hero : public Character {
+public:
+
+	Hero(std::string name, int x, int y, char** MAP, int n, int m);
+	~Hero();
+
+private:
+
+};
+
+
+class Enemy : public Character {
+public:
+	Enemy(std::string name, int x, int y, char** MAP, int n, int m);
+	~Enemy();
+	void draw(sf::RenderTarget& target);
+private:
 
 };

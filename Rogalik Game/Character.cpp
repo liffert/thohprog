@@ -2,15 +2,6 @@
 #include "Game.h"
 
 Character::Character(std::string name, int x, int y, char** MAP, int n, int m) : name(name), x(x), y(y), MAP(MAP), n(n), m(m) {
-	sf::Image image;
-	image.loadFromFile(Hero_path[hero_path::left]);
-	Hero_textures[hero_path::left].loadFromImage(image);
-	image.loadFromFile(Hero_path[hero_path::right]);
-	Hero_textures[hero_path::right].loadFromImage(image);
-	image.loadFromFile(Hero_path[hero_path::front]);
-	Hero_textures[hero_path::front].loadFromImage(image);
-	image.loadFromFile(Hero_path[hero_path::back]);
-	Hero_textures[hero_path::back].loadFromImage(image);
 }
 
 Character::~Character() {
@@ -62,11 +53,54 @@ int Character::getX() const {
 	return x;
 }
 
+void Character::init() {
+	sf::Image image;
+	image.loadFromFile(Hero_path[hero_path::left]);
+	Hero_textures[hero_path::left].loadFromImage(image);
+	image.loadFromFile(Hero_path[hero_path::right]);
+	Hero_textures[hero_path::right].loadFromImage(image);
+	image.loadFromFile(Hero_path[hero_path::front]);
+	Hero_textures[hero_path::front].loadFromImage(image);
+	image.loadFromFile(Hero_path[hero_path::back]);
+	Hero_textures[hero_path::back].loadFromImage(image);
+}
+
 bool Character::ability_to_move(int x, int y) {
-	if (MAP[y / 30][x / 30] != 'A' || MAP[y / 30][(x + 15) / 30] != 'A' || MAP[(y + 15)/30][(x + 15)/30] != 'A' || MAP[(y + 15)/30][x/30] != 'A') {
+	if (MAP[y / pixelSize][x / pixelSize] != 'A' || MAP[y / pixelSize][(x + size) / pixelSize] != 'A' || MAP[(y + size)/ pixelSize][(x + size)/ pixelSize] != 'A' || MAP[(y + size)/ pixelSize][x/ pixelSize] != 'A') {
 		return false;
 	}
 	else {
 		return true;
 	}
+}
+
+
+Hero::Hero(std::string name, int x, int y, char** MAP, int n, int m) : Character(name, x, y, MAP, n, m) {
+	Hero_path[hero_path::left] = "Characters/Left.png";
+	Hero_path[hero_path::right] = "Characters/Right.png";
+	Hero_path[hero_path::front] = "Characters/Front.png";
+	Hero_path[hero_path::back] = "Characters/Front.png";
+	init();
+}
+
+Hero::~Hero() {
+}
+
+Enemy::Enemy(std::string name, int x, int y, char** MAP, int n, int m) : Character(name, x, y, MAP, n, m) {
+	Hero_path[hero_path::left] = "Characters/Left.png";
+	Hero_path[hero_path::right] = "Characters/Right.png";
+	Hero_path[hero_path::front] = "Characters/Front.png";
+	Hero_path[hero_path::back] = "Characters/Front.png";
+	init();
+}
+
+Enemy::~Enemy() {
+}
+
+void Enemy::draw(sf::RenderTarget& target) {
+	sf::Sprite sprite;
+	sprite.setTexture(Hero_textures[now_move]);
+	sprite.setPosition(x, y);
+	sprite.setScale(0.01, 0.01);
+	target.draw(sprite);
 }

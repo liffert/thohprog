@@ -16,40 +16,7 @@ private:
 	char** Rect;
 	int rows;
 	int columns;
-
-	//alive
-	int step = 22;
-	void doSimualtionStep();
-	int birthLimit = 4;
-	int deathLimit = 3;
-	int countAliveNeighbours(int x, int y);
 	//
-
-	//BSP
-	class leaf {
-
-	public:
-		leaf(int x, int y, int width, int height);
-		~leaf();
-		int x;
-		int y;
-		int width;
-		int height;
-
-	};
-
-	typedef struct element {
-		LevelGeneration::leaf* el;
-		struct element* L;
-		struct element* R;
-	}element_t;
-
-	element_t* head;
-	
-	void split(element_t *&pointer);
-
-	//
-
 
 	typedef struct point {
 		double x;
@@ -79,6 +46,5 @@ private:
 	void placeRooms();
 	void hcoridor(int x1, int x2, int y);
 	void ycoridor(int y1, int y2, int x);
-	int pixelSize = 30;
 	
 };

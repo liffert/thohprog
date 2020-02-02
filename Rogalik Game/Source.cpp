@@ -9,14 +9,12 @@ int main() {
 	sf::RenderWindow window(sf::VideoMode(1920, 1080), "Rogalik");
 	window.setFramerateLimit(60);
 
-	LevelGeneration gen(64, 36);
-	//gen.print();
 
 	sf::Event event;
-	//view.reset(sf::FloatRect(0, 0, 1980, 1080));
+
 	view.setSize(sf::Vector2f(400, 400));
 
-	Game newGame(gen, 36, 64, 30);
+	Game newGame(1920 / pixelSize, 1080 / pixelSize);
 	
 	while (window.isOpen()) {
 		while (window.pollEvent(event)) {
@@ -48,7 +46,6 @@ int main() {
 		view.setCenter(100 + newGame.get_hero_X(), newGame.get_hero_Y());
 		window.setView(view);
 		window.clear();
-		window.draw(gen);
 		sf::CircleShape temp(10);
 		temp.setPosition(70, 80);
 		window.draw(temp);

@@ -1,14 +1,15 @@
 #include "Game.h"
 #include <iostream>
-Game::Game(LevelGeneration& lvl, int n, int m, int pixelSize) : n(n), m(m), pixelSize(pixelSize) {
-	MAP = lvl.get();
+
+Game::Game(int n, int m) : n(n), m(m) {
+	lvl = new LevelGeneration(n, m);
+	MAP = lvl->get();
 	int x;
 	int y;
 
-	lvl.get_start(x, y);
+	lvl->get_start(x, y);
 	x = x * pixelSize;
 	y = y * pixelSize;
-	MAP = lvl.get();
 	Inintialization(x, y);
 }
 
@@ -18,15 +19,17 @@ Game::~Game() {
 
 void Game::Inintialization(int x, int y) {
 	characters.clear();
-	Character hero("Hero", x, y, MAP, n, m);
+	Hero hero("Hero", x, y, MAP, n, m);
 	Weapon weap(x, y);
 	characters.push_back(std::make_pair(hero, weap));
 }
 
 void Game::draw(sf::RenderTarget& target) {
-	for (auto& iter : characters) {
-		target.draw(iter.first);
-		target.draw(iter.second);
+	target.draw(*lvl);
+	target.draw(characters.begin()->first);
+	target.draw(characters.begin()->second);
+	for (int i = 1; i < characters.size(); i++) {
+		dynamic_cast<Enemy*>(&characters[i].first)->draw(target);
 	}
 	kick_hero(false);
 }

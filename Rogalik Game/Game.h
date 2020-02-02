@@ -4,11 +4,12 @@
 #include <vector>
 #include "Weapon.h"
 #include "LevelGeneration.h"
+const int pixelSize = 30;
 
 class Game {
 
 public:
-	Game(LevelGeneration &lvl, int n, int m, int pixelSize);
+	Game(int n, int m);
 	~Game();
 	void Inintialization(int x, int y);
 	void Move_hero(int move);
@@ -29,7 +30,8 @@ private:
 	char** MAP;
 	int n;
 	int m;
-	int pixelSize;
 	std::vector<std::pair<Character, Weapon>> characters;
+
+	LevelGeneration* lvl;
 };
 
